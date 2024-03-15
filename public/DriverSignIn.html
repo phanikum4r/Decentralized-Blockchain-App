@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Web 3 Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="node_modules/web3/dist/web3.min.js" type="text/jsx"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="CommonScript.js" type="text/javascript"></script>
+  <style>
+    body {
+      background-image: url("booked.jpg");
+      background-size: cover;
+      color: black;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+
+    input,
+    select {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      display: block;
+      direction: ltr;
+    }
+
+    label {
+      font-size: 20px;
+      font-weight: bolder;
+    }
+
+    button {
+      width: 50%;
+      background-color: black;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #323232;
+    }
+
+    div {
+      border-radius: 5px;
+
+      padding: 10px;
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body onload="DriverSignInLoad()" style="background-image: url('driver_signup.jpg')">
+  <div>
+    <h3>Account No:</h3>
+    <span id="accId"></span>
+  </div>
+  <div id="first">
+    <p id="first_bookedId"></p>
+    <p id="first_source"></p>
+    <p id="first_dest"></p>
+    <p id="first_mob"></p>
+    <div id="first_inner">
+      <button id="first_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="first_inner1">
+        <label for="first_otp">Enter OTP</label>
+        <input type="number" id="first_otp" placeholder="Enter OTP" /><br />
+        <label for="first_price">Enter price</label><input type="number" id="first_price"
+          placeholder="Enter Price" /><br />
+        <button id="first_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="second">
+    <p id="second_bookedId"></p>
+    <p id="second_source"></p>
+    <p id="second_dest"></p>
+    <p id="second_mob"></p>
+    <div id="second_inner">
+      <button id="second_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="second_inner1">
+        <label for="second_otp">Enter OTP</label>
+        <input type="number" id="second_otp" placeholder="Enter OTP" /><br />
+        <label for="second_price">Enter price</label><input type="number" id="second_price"
+          placeholder="Enter Price" /><br />
+        <button id="second_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="third">
+    <p id="third_bookedId"></p>
+    <p id="third_source"></p>
+    <p id="third_dest"></p>
+    <p id="third_mob"></p>
+    <div id="third_inner">
+      <button id="third_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="third_inner1">
+        <label for="third_otp">Enter OTP</label>
+        <input type="number" id="third_otp" placeholder="Enter OTP" /><br />
+        <label for="third_price">Enter price</label><input type="number" id="third_price"
+          placeholder="Enter Price" /><br />
+        <button id="third_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="fourth">
+    <p id="fourth_bookedId"></p>
+    <p id="fourth_source"></p>
+    <p id="fourth_dest"></p>
+    <p id="fourth_mob"></p>
+
+    <div id="fourth_inner">
+      <button id="fourth_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="fourth_inner1">
+        <label for="fourth_otp">Enter OTP</label>
+        <input type="number" id="fourth_otp" placeholder="Enter OTP" /><br />
+        <label for="fourth_price">Enter price</label><input type="number" id="fourth_price"
+          placeholder="Enter Price" /><br />
+        <button id="fourth_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="fifth">
+    <p id="fifth_bookedId"></p>
+    <p id="fifth_source"></p>
+    <p id="fifth_dest"></p>
+    <p id="fifth_mob"></p>
+    <div id="fifth_inner">
+      <button id="fifth_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="fifth_inner1">
+        <label for="fifth_otp">Enter OTP</label>
+        <input type="number" id="fifth_otp" placeholder="Enter OTP" /><br />
+        <label for="fifth_price">Enter price</label><input type="number" id="fifth_price"
+          placeholder="Enter Price" /><br />
+        <button id="fifth_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="sixth">
+    <p id="sixth_bookedId"></p>
+    <p id="sixth_source"></p>
+    <p id="sixth_dest"></p>
+    <p id="sixth_mob"></p>
+    <div id="sixth_inner">
+      <button id="sixth_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="sixth_inner1">
+        <label for="sixth_otp">Enter OTP</label>
+        <input type="number" id="sixth_otp" placeholder="Enter OTP" /><br />
+        <label for="sixth_price">Enter price</label><input type="number" id="sixth_price"
+          placeholder="Enter Price" /><br />
+        <button id="sixth_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="seventh">
+    <p id="seventh_bookedId"></p>
+    <p id="seventh_source"></p>
+    <p id="seventh_dest"></p>
+    <p id="seventh_mob"></p>
+    <div id="seventh_inner">
+      <button id="seventh_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="seventh_inner1">
+        <label for="seventh_otp">Enter OTP</label>
+        <input type="number" id="seventh_otp" placeholder="Enter OTP" /><br />
+        <label for="seventh_price">Enter price</label><input type="number" id="seventh_price"
+          placeholder="Enter Price" /><br />
+        <button id="seventh_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="eigth">
+    <p id="eigth_bookedId"></p>
+    <p id="eigth_source"></p>
+    <p id="eigth_dest"></p>
+    <p id="eigth_mob"></p>
+    <div id="eigth_inner">
+      <button id="eigth_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="eigthinner1">
+        <label for="eigth_otp">Enter OTP</label>
+        <input type="number" id="eigth_otp" placeholder="Enter OTP" /><br />
+        <label for="eigth_price">Enter price</label><input type="number" id="eigth_price"
+          placeholder="Enter Price" /><br />
+        <button id="eigth_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="nineth">
+    <p id="nineth_bookedId"></p>
+    <p id="nineth_source"></p>
+    <p id="nineth_dest"></p>
+    <p id="nineth_mob"></p>
+    <div id="nineth_inner">
+      <button id="nineth_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="nineth_inner1">
+        <label for="nineth_otp">Enter OTP</label>
+        <input type="number" id="nineth_otp" placeholder="Enter OTP" /><br />
+        <label for="nineth_price">Enter price</label><input type="number" id="nineth_price"
+          placeholder="Enter Price" /><br />
+        <button id="nineth_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="tenth">
+    <p id="tenth_bookedId"></p>
+    <p id="tenth_source"></p>
+    <p id="tenth_dest"></p>
+    <p id="tenth_mob"></p>
+    <div id="tenth_inner">
+      <button id="tenth_bt" onclick="bookDrop(this.id)">
+        Click here to accept
+      </button>
+      <div id="tenth_inner1">
+        <label for="tenth_otp">Enter OTP</label>
+        <input type="number" id="tenth_otp" placeholder="Enter OTP" /><br />
+        <label for="tenth_price">Enter price</label><input type="number" id="tenth_price"
+          placeholder="Enter Price" /><br />
+        <button id="tenth_submit" onclick="addPicked(this.id)">
+          Click here to submit
+        </button>
+      </div>
+    </div>
+  </div>
+  Status: <span id="status">Loading...</span>
+</body>
+
+</html>

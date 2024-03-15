@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Web 3 Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script src="node_modules/web3/dist/web3.min.js" type="text/jsx"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="CommonScript.js" type="text/javascript"></script>
+  <style>
+    input,
+    select {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      display: block;
+      direction: ltr;
+    }
+
+    .buttons {
+      width: 50%;
+      background-color: black;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .buttons:hover {
+      background-color: grey;
+    }
+
+    div {
+      border-radius: 5px;
+
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body onload="load()" style="background-image: url('bg2.jpg')">
+  <h3 id="accId"></h3>
+  <br />
+  <br />
+  <form action="Booked.html">
+    <label for="source">Source:</label>
+    <input id="source" name="source" placeholder="Source" />
+
+    <label for="dest">Destination:</label>
+    <input id="dest" name="dest" placeholder="Destination" />
+    <br />
+    <input type="submit" value="Submit" onclick="adddrop()" class="buttons" id="submit" />
+    <input type="hidden" id="dropId" name="dropId" />
+  </form>
+  <br /><br />
+  <button onclick="adddrop()" id="bt" class="buttons">
+    Please Click here to process
+  </button>
+  <br /><br />
+  Status: <span id="status">Loading...</span>
+</body>
+
+</html>
